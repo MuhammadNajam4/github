@@ -1,0 +1,41 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<OnlineShopping.Models.tbl_category>
+
+@{
+    ViewBag.Title = "ViewCategory";
+}
+1
+2
+3
+<h2 class="mt-5">ViewCategory</h2>
+
+<hr class="hr" />
+
+<div class="row">
+    
+        @{
+            if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4 mt-5">
+                        <img src="@Url.Content(item.cat_image)" class="img-fluid" alt="Alternate Text" />
+
+                        <h5 class="mt-3">@item.cat_name</h5>
+                    </div>
+                }
+            }
+        }
+                    
+</div>
+<section class="mt-5">
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @*Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                of @Model.PageCount*@ 
+                @Html.PagedListPager(Model, page => Url.Action("ViewCategory", new { page, @class="page-link" }))
+            </ul>
+        </nav>
+</div>
+</section>

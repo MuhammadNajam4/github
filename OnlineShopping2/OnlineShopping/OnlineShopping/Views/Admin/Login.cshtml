@@ -1,0 +1,51 @@
+﻿@model OnlineShopping.Models.tbl_admin
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="row mt-5 mb-5">
+        <div class="col-md-4 offset-4">
+            <form action="" method="post" class="">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    @Html.TextBoxFor(x => x.ad_name, new { @class = "form-control" })
+                    <label class="form-label" for="ad_name">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    @Html.PasswordFor(x => x.ad_password, new { @class = "form-control" })
+                    <label class="form-label" for="ad_password">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                <p class="btn-danger">@ViewBag.error</p>
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Not a member? <a href="#!">Register</a></p>
+                    <p>or sign up with:</p>
+                    <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+
+                    <button type="submit" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-github"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+}

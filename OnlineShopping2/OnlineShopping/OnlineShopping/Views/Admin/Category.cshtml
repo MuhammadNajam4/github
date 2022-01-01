@@ -1,0 +1,33 @@
+﻿@model OnlineShopping.Models.tbl_category
+@{
+    ViewBag.Title = "Category";
+}
+
+<h2 class="mt-5">Category Welcome @Session["Ad_Name"]</h2>
+
+@using (Html.BeginForm("Category", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="row mt-5 mb-5">
+        <div class="col-md-4 offset-4">
+            <form action="" method="post" class="">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    @Html.TextBoxFor(x => x.cat_name, new { @class = "form-control" })
+                    <label class="form-label" for="ad_name">Category Name</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="mb-4">
+                    <input type="file" class="form-control form-control-lg" name="imgfile" id="imgfile" required/>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+                <p class="btn-danger">@ViewBag.error</p>
+            </form>
+        </div>
+    </div>
+}
+
+
